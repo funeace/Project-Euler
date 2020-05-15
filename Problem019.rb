@@ -22,7 +22,7 @@ end
 p count
 
 
-# メソッドがうまくいっていないaa
+# メソッドがうまくいっていないiii
 # zellerの公式より
 # 曜日＝(y＋y／4－y／100＋y／400＋(13×m＋8)／5＋d)mod7
 # def zeller(y,m,d)
