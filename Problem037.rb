@@ -6,23 +6,24 @@
 
 require 'prime'
 
-
+debug = []
 answer = 0
-(3797..3797).each do |num|
+(11..800000).each do |num|
+  next if num % 2 == 0 || num.to_s.include?("0")
   num_chk = []
   num.to_s.split("").each_with_index do |num_char,ind|
-    chk_number = num.to_s.split("")[ind..-1].join.to_i
-    chk_number_reverse = num.to_s.reverse.split("")[ind+1..-1].join.to_i
-    num_chk.push([chk_number,Prime.prime?(chk_number),chk_number_reverse,Prime.prime?(chk_number_reverse)])
-  end
-
-
+  chk_number = num.to_s.split("")[ind..num.to_s.length].join.to_i
+  chk_number_reverse = num.to_s.reverse.split("")[ind..num.to_s.length].reverse.join.to_i
+  num_chk.push([chk_number,Prime.prime?(chk_number),chk_number_reverse,Prime.prime?(chk_number_reverse)])
+end
 
   # p num_chk.flatten
-  p num_chk.flatten
   unless num_chk.flatten.include?(false)
-    p num_chk.flatten
-    p answer = answer + num_chk[0][0]
+    if debug.include?(num.to_s.reverse.to_i) == false
+      # p "#{debug.include?(num.to_s.reverse.to_i)}------------ #{num}"
+      debug.push(num_chk[0][0])
+    end
   end
 end
-  p answer
+ p debug
+ p debug.sum
