@@ -13,7 +13,7 @@
 
   (1..500).each do |i|
     (0..3).each do |j|
-      plus += i * 2;
+      plus += i * 2
       ans += plus
     end
   end
