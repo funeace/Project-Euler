@@ -7,6 +7,7 @@
 
 # 考え方
 # x + y + sumをto_sした結果が9桁 かつ、1から9まで含まれている
+# 9桁だった場合、結果をメソッドに飛ばし、1-9までの配列と比較させる
 
 def pandegital?(result)
   num_chk = (1..9).to_a
@@ -15,16 +16,12 @@ def pandegital?(result)
   num_chk == result_chk ? true : false
 end
 
-# p pandegital?(1,2,3)
-
 answer = []
 
 (1..100000).each do |x|
   (1..100000).each do |y|
     result = x.to_s + y.to_s + (x * y).to_s
     if result.size == 9 && pandegital?(result)
-      p result
-
       answer.push(x * y)
       break
     elsif result.size >= 10
