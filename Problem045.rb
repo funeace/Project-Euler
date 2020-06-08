@@ -8,15 +8,28 @@
 # 次の三角数かつ五角数かつ六角数な数を求めよ.
 
 # 以下だと遅すぎる
-triangle = []
-pentagon = []
-hexagon =  []
+# triangle = []
+# pentagon = []
+# hexagon =  []
 
-(1..100000000).each do |n|
-  triangle.push((n + 1)/2)
+# (1..100000000).each do |n|
+#   triangle.push((n + 1)/2)
+#   pentagon.push(n * (3 * n - 1) / 2)
+#   hexagon.push(n * (2 * n - 1))
+# end
+
+# p triangle & pentagon & hexagon
+
+# 六角数であれば三角数である
+# なので、六角数で五角数の物を探せばいい
+
+hexagon = []
+pentagon = []
+
+
+(1..15000000).each do |n|
   pentagon.push(n * (3 * n - 1) / 2)
   hexagon.push(n * (2 * n - 1))
 end
 
-p triangle & pentagon & hexagon
-
+p hexagon & pentagon
