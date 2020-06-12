@@ -6,16 +6,16 @@
 
 require 'prime'
 
-
-# 処理のイメージ
-
+# 各校は他の公の置換で表されるがわからなかった。
 (1000..9999).each do |i|
   # 素数判定を行い、素数であったら
   if Prime.prime?(i)
     (1000..i).each do |j|
       if Prime.prime?(i + j) && (i + j) <= 9999
         if Prime.prime?(i - j) && (i - j) >= 1000
-          puts "#{i}#{i+j}#{i-j}"
+          if (i + j) == i +  i - (i - j)
+            puts "#{i - j}#{i}#{i+j}"
+          end
         elsif (i - j) <1000
         end
       elsif (i + j) > 9999
@@ -24,5 +24,3 @@ require 'prime'
     end
   end
 end
-
-# 994999679931
