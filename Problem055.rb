@@ -20,7 +20,7 @@
 # 注: 2007/04/24にLychrel数の理論的な性質を強調するために文面が修正された.
 
 def parindrome?(num)
-  true if num.to_s == num.to_s.reverse
+  return true if num.to_s == num.to_s.reverse
   false
 end
 
